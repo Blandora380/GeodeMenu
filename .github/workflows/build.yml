@@ -39,12 +39,12 @@ jobs:
         uses: geode-sdk/build-geode-mod@main
         with:
           bindings: 'TheSillyDoggo/bindings'
-          #build-config: 'RelWithDebInfo'
           build-config: 'Release'
           export-pdb: true
           combine: true
-          #sdk: 'nightly'
           target: ${{ matrix.config.target }}
+          configure-args: -DCMAKE_CXX_SCAN_FOR_MODULES=OFF
+
       
   package:
     name: Package builds
